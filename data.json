@@ -1,36 +1,48 @@
-[{
-	"date" : "2017-11-09",
+[
+  {
+	"date" : "8/11/2017",
+	"account" : "1001",
+	"symbol" : "A",
+	"quantity" : -1000
+},{
+	"date" : "9/11/2017",
 	"account" : "1001",
 	"symbol" : "A",
 	"quantity" : -1000
 },
 {
-	"date" : "2017-11-09",
+	"date" : "9/11/2017",
 	"account" : "1001",
 	"symbol" : "B",
 	"quantity" : 20000
 },
 {
-	"date" : "2017-11-09",
+	"date" : "9/11/2017",
 	"account" : "1002",
 	"symbol" : "B",
 	"quantity" : -3000
 },
 {
-	"date" : "2017-11-09",
+	"date" : "9/11/2017",
 	"account" : "1002",
 	"symbol" : "C",
 	"quantity" : 2900
 },
 {
-	"date" : "2017-11-09",
+	"date" : "9/11/2017",
 	"account" : "1003",
 	"symbol" : "D",
 	"quantity" : 100
 },
 {
-	"date" : "2017-11-09",
+	"date" : "9/11/2017",
 	"account" : "1003",
 	"symbol" : "E",
 	"quantity" : 70000
+},
+{
+	"date" : "10/11/2017",
+	"account" : "1002",
+	"symbol" : "B",
+	"quantity" : -3000
 }]
