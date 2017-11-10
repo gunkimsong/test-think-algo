@@ -3,6 +3,8 @@ import time
 import csv
 
 data = []
+report_dict = {}
+date_group = []
 # Read File
 try:
     with open('data.json') as json_data:
@@ -139,14 +141,22 @@ for json_data in d:
             tmp_data['account'] = json_data['account']
             tmp_data['symbol'] = json_data['symbol']
             tmp_data['quantity'] = split_arg[0]
+
+            if tmp_data['date'] not in date_group:
+                date_group.append(tmp_data['date'])
             data.append(tmp_data)
 
-
-with open('Data.csv', 'w') as csvfile:
-    fieldnames = ['date', 'time', 'account', 'symbol', 'quantity']
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-    writer.writeheader()
-
+for date in date_group:
     for item in data:
-        writer.writerow({'date': item['date'], 'time': item['time'], 'account': item['account'], 'symbol': item['symbol'],
-                             'quantity': item['quantity']})
+        if item['date'] in date:
+            for set_time in settings['timeslot']['10']:
+                if item['time'] in set_time:
+                    csv_name = str(item['date']).replace('/', '').zfill(8) + '_' + str(item['time']).replace(':', '')
+                    with open(csv_name+'.csv', 'a') as csvfile:
+                        fieldnames = ['date', 'time', 'account', 'symbol', 'quantity']
+                        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                        writer.writerow({'date': item['date'], 'time': item['time'], 'account': item['account'], 'symbol': item['symbol'],
+                                         'quantity': item['quantity']})
+                    print(item)
+
+# report_dict.update({item['account']: {item['date']: {item['time']: [item['symbol'], item['quantity']]}}})
